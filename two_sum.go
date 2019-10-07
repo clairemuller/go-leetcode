@@ -12,7 +12,15 @@ package main
 import "fmt"
 
 func twoSum(nums []int, target int) []int {
-	return []int{1, 2}
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i] + nums[j] == target {
+				sum := []int{i, j}
+				return sum
+			}
+		}
+	}
+	return []int{}
 }
 
 func main() {
