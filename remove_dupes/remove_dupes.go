@@ -8,12 +8,21 @@ package main
 import "fmt"
 
 func removeDuplicates(nums []int) int {
-	fmt.Println(nums)
+	fmt.Println("start:", nums)
+
+	for i := 1; i < len(nums); i++ {
+		if nums[i-1] == nums[i] {
+			nums = append(nums[:i], nums[i+1:]...)
+			i--
+		}
+	}
+
+	fmt.Println("end:  ", nums)
 	return len(nums)
 }
 
 func main() {
-	nums := []int{1, 1, 2, 3, 3, 4, 5, 6, 6}
+	nums := []int{1, 1, 2, 3, 4, 4, 5, 5, 5, 5, 5}
 	result := removeDuplicates(nums)
 	fmt.Println(result)
 }
